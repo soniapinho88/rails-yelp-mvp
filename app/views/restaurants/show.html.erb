@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Restaurant Details</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h3><strong>Name:</strong> <%= @restaurant.name %></h3>
+
+          <p><strong>Address:</strong> <%= @restaurant.address %></p>
+
+          <p><strong>Phone number:</strong> <%= @restaurant.phone_number %></p>
+
+          <p><strong>Category:</strong> <%= @restaurant.category %></p>
+        </div>
+
+        <div class="col-md-6">
+          <h3><strong>Reviews</strong></h3>
+
+          <ul class="list-group">
+            <% @restaurant.reviews.each do |review| %>
+              <li class="list-group-item">
+                <div class="row align-items-center">
+                  <div class="col-2">
+                    <%= review.rating %>
+                  </div>
+                  <div class="col-10">
+                    <%= review.content %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="d-flex justify-content-between">
+        <div class="text-start">
+          <%= link_to "Back to restaurants", restaurants_path, class: "btn btn-secondary" %>
+        </div>
+        <div>
+          <%= link_to 'Leave a Review', new_restaurant_review_path(@restaurant), class: "btn btn-warning" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Add a new Restaurant</h1>
+
+  <%= simple_form_for(@restaurant, html: { class: "form" }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number, class: "form-control" %>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <%= f.label :category %>
+      <%= f.text_field :category, class: "form-control" %>
+    </div>
+    <br>
+
+    <br>
+
+    <div class="form-actions">
+      <%= f.submit "Submit Restaurant", class: "btn btn-primary" %>
+      <%= link_to "Back to restaurants", restaurants_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>
